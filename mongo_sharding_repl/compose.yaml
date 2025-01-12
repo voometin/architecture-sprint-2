@@ -100,9 +100,6 @@ services:
     restart: always
     ports:
       - "27118:27118"
-    # networks:
-    #   app-network:
-    #     ipv4_address: 173.17.0.10
     volumes:
       - shard11-data:/data/db
     command:
@@ -125,9 +122,6 @@ services:
     restart: always
     ports:
       - "27218:27218"
-    # networks:
-    #   app-network:
-    #     ipv4_address: 173.17.0.9
     volumes:
       - shard12-data:/data/db
     command:
@@ -150,9 +144,6 @@ services:
     restart: always
     ports:
       - "27119:27119"
-    # networks:
-    #   app-network:
-    #     ipv4_address: 173.17.0.8
     volumes:
       - shard21-data:/data/db
     command:
@@ -175,9 +166,6 @@ services:
     restart: always
     ports:
       - "27219:27219"
-    # networks:
-    #   app-network:
-    #     ipv4_address: 173.17.0.8
     volumes:
       - shard22-data:/data/db
     command:
