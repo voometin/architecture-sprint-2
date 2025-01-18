@@ -1,35 +1,38 @@
-# pymongo-api
+# Sprint2 - Sharding and replication
 
-## Как запустить
+## How to run and test
 
-Запускаем mongodb и приложение
+### Task 1 - Configure and test sharding (2 shards)
 
-```shell
-docker compose up -d
-```
+![Alt text](sprint2_task2.jpg)
 
-Заполняем mongodb данными
+1. Go to folder `./mongo_sharding`
+2. Build and start docker compose - execute command ```docker compose up -d```
+3. Configure and init sharding, insert some data to DB - execute command ```../scripts/mongo-sharding.sh```
+4. Check sharding  - execute command ```../scripts/mongo-sharding-check.sh```
 
-```shell
-./scripts/mongo-init.sh
-```
+### Task 2 - Configure and test replication for each shard (3 replics for each shard)
 
-## Как проверить
+![Alt text](sprint2_task3.jpg)
 
-### Если вы запускаете проект на локальной машине
+1. Go to folder `./mongo_sharding_repl`
+2. Build and start docker compose - execute command ```docker compose up -d```
+3. Configure and init replics, insert some data to DB - execute command ```../scripts/mongo-sharding-repl.sh```
+4. Check replications  - execute command ```../scripts/mongo-sharding-repl-check.sh```
 
-Откройте в браузере http://localhost:8080
+### Task 3 - Configure and test cache (redis)
 
-### Если вы запускаете проект на предоставленной виртуальной машине
+![Alt text](sprint2_task4.jpg)
 
-Узнать белый ip виртуальной машины
+1. Go to folder `./sharding_repl_cache`
+2. Build and start docker compose - execute command ```docker compose up -d```
+3. Configure and init sharding with replication, insert some data to DB - execute command ```../scripts/mongo-sharding-repl.sh```
+4. Open `http://localhost:8080/users` in browser at developer mode (F12 for Chrome) and choose `Network`. Look at the first loading time. Refresh the page and look at the second and the following reloading time - it should decrease.
 
-```shell
-curl --silent http://ifconfig.me
-```
+### Task4 - Add to design diagramm load balancer based on APISIX Gateway and Consul as Service Discovery
 
-Откройте в браузере http://<ip виртуальной машины>:8080
+![Alt text](sprint2_task5.jpg)
 
-## Доступные эндпоинты
+### Task5 - Add Content Delivery Network
 
-Список доступных эндпоинтов, swagger http://<ip виртуальной машины>:8080/docs
+![Alt text](sprint2_task6.jpg)
